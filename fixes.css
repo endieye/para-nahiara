@@ -1,0 +1,214 @@
+.wall #dialog {
+  top: 7%;
+  width: min(500px, 72%);
+  padding: 12px 18px;
+}
+
+.wall #dialog #speaker {
+  font-size: 10px;
+}
+
+.wall #dialog h1 {
+  margin: 5px 0;
+  font-size: clamp(20px, 2.2vw, 29px);
+}
+
+.wall #dialog p {
+  margin-bottom: 8px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.wall #dialog button {
+  min-height: 38px;
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
+.cat-label {
+  position: absolute;
+  right: 1.5%;
+  bottom: 22%;
+  z-index: 4;
+  color: #fff8dc;
+  font: 600 14px system-ui, sans-serif;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 5px #29151f, 0 0 8px #29151f;
+  pointer-events: none;
+}
+
+.graffiti.clickable {
+  clip-path: inset(0);
+  opacity: .28;
+  pointer-events: auto;
+  touch-action: manipulation;
+  transition: opacity .25s ease;
+}
+
+.sky-intro #landscape {
+  background-color: #020207;
+}
+
+.sky-intro #shade {
+  background: radial-gradient(circle at 50% 55%, transparent 0 22%, rgba(0, 0, 8, .78) 74%);
+}
+
+.sky-intro .sky-vane {
+  left: 33% !important;
+  bottom: -4%;
+  width: 34%;
+  height: 76%;
+  animation: sky-zoom 1.8s cubic-bezier(.2,.8,.2,1) both;
+  filter: drop-shadow(0 0 25px rgba(255, 211, 85, .28));
+}
+
+.sky-intro #dialog {
+  top: 8%;
+  width: min(650px, 88%);
+  background: rgba(9, 7, 15, .78);
+  border-color: rgba(255, 219, 113, .4);
+}
+
+.space-mode #landscape,
+.space-mode #shade {
+  background: #000;
+}
+
+.space-mode header,
+.space-mode footer,
+.space-mode #chapter {
+  z-index: 8;
+}
+
+#space-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  cursor: grab;
+  outline: none;
+}
+
+.space-hud {
+  position: absolute;
+  top: 12%;
+  left: 50%;
+  z-index: 7;
+  display: grid;
+  gap: 5px;
+  width: min(620px, 84%);
+  padding: 13px 22px;
+  color: #fff9dc;
+  text-align: center;
+  transform: translateX(-50%);
+  pointer-events: none;
+  text-shadow: 0 0 12px #000, 0 0 20px #d89b22;
+}
+
+.space-hud strong {
+  font: 400 clamp(23px, 3.2vw, 42px) Georgia, serif;
+}
+
+.space-hud span {
+  font: 600 13px/1.5 system-ui, sans-serif;
+  letter-spacing: .08em;
+}
+
+.space-hud i {
+  color: #ffd95b;
+  font-size: 22px;
+  animation: space-pulse 1.8s ease-in-out infinite;
+}
+
+.space-exit {
+  position: absolute;
+  right: 4%;
+  bottom: 6%;
+  z-index: 9;
+  color: #fff4c5;
+  background: rgba(19, 13, 5, .72);
+  border-color: rgba(255, 218, 103, .65);
+  box-shadow: 0 0 24px rgba(255, 197, 47, .2);
+}
+
+.space-exit[hidden] {
+  display: none;
+}
+
+.moon-call {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  z-index: 8;
+  width: min(560px, 86%);
+  color: #ffe68b;
+  font: 500 clamp(18px, 2.4vw, 29px) Georgia, serif;
+  letter-spacing: .04em;
+  text-align: center;
+  text-shadow: 0 0 18px rgba(255, 211, 86, .45), 0 2px 8px #000;
+  opacity: 0;
+  transform: translateX(-50%);
+  pointer-events: none;
+  animation: moon-call-in 1.5s 1.1s ease forwards;
+}
+
+.space-hud.vanish,
+.moon-call.vanish {
+  opacity: 0 !important;
+  transition: opacity .65s ease;
+  animation: none;
+}
+
+@keyframes sky-zoom {
+  from { transform: scale(.45) translateY(35%); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes space-pulse {
+  50% { transform: scale(1.35); opacity: .55; }
+}
+
+@keyframes moon-call-in {
+  to { opacity: .95; }
+}
+
+@media (max-width: 600px) {
+  .wall #dialog {
+    top: 8%;
+    width: 82%;
+    padding: 10px 14px;
+  }
+
+  .wall #dialog h1 {
+    font-size: 21px;
+  }
+
+  .wall #dialog p,
+  .wall #dialog button {
+    font-size: 13px;
+  }
+
+  .cat-label {
+    right: 2%;
+    bottom: 20%;
+    font-size: 12px;
+  }
+
+  .sky-intro .sky-vane {
+    left: 27% !important;
+    width: 46%;
+    height: 64%;
+  }
+
+  .space-hud span {
+    font-size: 11px;
+  }
+
+  .space-exit {
+    right: 50%;
+    bottom: 7%;
+    transform: translateX(50%);
+    white-space: nowrap;
+  }
+}
